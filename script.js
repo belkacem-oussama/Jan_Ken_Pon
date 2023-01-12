@@ -20,18 +20,25 @@ app = {
         //Pierre
         const pierreDiv = app.createElement('div',{className:'pierre'}, choicesDiv)
         const pierreButton = app.createElement('button',{className:'pierre',textContent:'✊🏻'}, pierreDiv)
+        const listenerPierre = pierreButton.addEventListener('click', function(){console.log('Pierre')})
 
         //Feuille
         const feuilleDiv = app.createElement('div',{className:'feuille'}, choicesDiv)
         const feuilleButton = app.createElement('button',{className:'feuille',textContent:'✋🏻'}, feuilleDiv)
+        const listenerFeuille = feuilleButton.addEventListener('click', function(){console.log('Feuille')})
+
 
         //Ciseaux
         const ciseauxDiv = app.createElement('div',{className:'ciseaux'}, choicesDiv)
         const ciseauxButton = app.createElement('button',{className:'ciseaux',textContent:'✌🏻'}, ciseauxDiv)
+        const listenerCiseaux = ciseauxButton.addEventListener('click', function(){console.log('Ciseaux')})
+
 
         //Reset
         const resetDiv = app.createElement('div',{className:'reset'}, screenGame)
         const resetButton = app.createElement('button',{className:'reset',textContent:'Play again'}, resetDiv)
+        const listenerReset = resetButton.addEventListener('click', function(){console.log('Reset')})
+
 
     },
 
