@@ -10,7 +10,7 @@ app = {
         const appDiv = app.createElement('div', {className:'app'},document.body);
 
         //Create h1elem
-        const h1 = app.createElement('h1', {textContent:'Jan Ken Pon !'}, appDiv)
+        const h1 = app.createElement('h1', {textContent:'JAN KEN PON !'}, appDiv)
 
         //Create screen game
         const screenGame = app.createElement('div',{className:'game'}, appDiv)
