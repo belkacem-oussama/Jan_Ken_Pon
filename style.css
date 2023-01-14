@@ -1,5 +1,6 @@
 *{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
 }
 
 .app {
@@ -23,11 +24,29 @@
 .result{
     display: flex;
     justify-content: center;
+    flex-direction: column;
     background-color: white;
     color: black;
     width: 50em;
     height: 30em;
     border-radius: 20px;
+}
+
+.computer{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 50%;
+    font-size: 2em;
+
+}
+
+.player{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 50%;
+    font-size: 2em;
 }
 
 .pierre, .feuille, .ciseaux, .reset{
@@ -36,3 +55,8 @@
     text-align: center;
     font-size: 1.5em;
     }
+
+.displayNone{
+    display: none;
+}
+
