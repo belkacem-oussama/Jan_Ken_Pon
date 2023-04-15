@@ -44,8 +44,8 @@ const app = {
         const listenerCiseaux = ciseauxButton.addEventListener('click', function () {app.displayElement(ciseauxButton); app.displayElementOrdi(); app.playGame()})
         
         //Score
-        const userScoreElem = app.createElement('div', { className: 'user-score', textContent: `Vous: ${app.userScore}` }, app.pElement);
         const computerScoreElem = app.createElement('div', { className: 'computer-score', textContent: `Ordinateur: ${app.computerScore}` }, app.pElement);
+        const userScoreElem = app.createElement('div', { className: 'user-score', textContent: `Vous: ${app.userScore}` }, app.pElement);
         
         //Result
         app.resultElem = document.createElement('p');
