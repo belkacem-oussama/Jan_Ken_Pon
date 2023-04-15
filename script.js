@@ -1,11 +1,13 @@
-app = {
+const app = {
     player: null,
     resultElem: null,
     computer: null,
     pElement: null,
+    userScore : 0,
+    computerScore : 0,
+
     init: function()
     {
-        console.log('init');
         //Create background
         const appDiv = app.createElement('div', {className:'app'},document.body);
 
@@ -41,10 +43,18 @@ app = {
         const ciseauxButton = app.createElement('button',{className:'ciseaux',textContent:'✌🏻'}, ciseauxDiv)
         const listenerCiseaux = ciseauxButton.addEventListener('click', function () {app.displayElement(ciseauxButton); app.displayElementOrdi(); app.playGame()})
         
+        //Score
+        const userScoreElem = app.createElement('div', { className: 'user-score', textContent: `Vous: ${app.userScore}` }, app.pElement);
+        const computerScoreElem = app.createElement('div', { className: 'computer-score', textContent: `Ordinateur: ${app.computerScore}` }, app.pElement);
+        
         //Result
         app.resultElem = document.createElement('p');
         const parentElem = document.querySelector('.game');
         parentElem.appendChild(app.resultElem);
+
+        //Reset button
+        const resetButton = app.createElement('button', { className: 'reset', textContent: 'Reset' }, appDiv);
+        resetButton.addEventListener('click', app.resetGame);
     },
 
     createElement: function(typeElem, options, parentElem)
@@ -68,22 +78,37 @@ app = {
         const randomOption = options[randomIndex];
         app.computer.innerHTML = randomOption;
     },
+    
+    playGame: function() {
+        // code for playing the game
+        const userChoice = app.player.textContent;
+        const computerChoice = app.computer.textContent;
+    
+        if (userChoice === computerChoice) {
+            app.resultElem.textContent = "Egalité !";
+        } else if (userChoice === "✊🏻" && computerChoice === "✌🏻" ||
+                   userChoice === "✋🏻" && computerChoice === "✊🏻" ||
+                   userChoice === "✌🏻" && computerChoice === "✋🏻") {
+            app.resultElem.textContent = "Vous avez gagné !";
+            app.userScore++; // update user score
+            document.querySelector('.user-score').textContent = `Vous: ${app.userScore}`; // update user score element
+        } else {
+            app.resultElem.textContent = "Vous avez perdu !";
+            app.computerScore++; // update computer score
+            document.querySelector('.computer-score').textContent = `Ordinateur: ${app.computerScore}`; // update computer score element
+        }
+    },
 
-    playGame: function() 
-{
-    const userChoice = app.player.textContent;
-    const computerChoice = app.computer.textContent;
-
-    if (userChoice === computerChoice) {
-        app.resultElem.textContent = "Egalité !";
-    } else if (userChoice === "✊🏻" && computerChoice === "✌🏻" ||
-               userChoice === "✋🏻" && computerChoice === "✊🏻" ||
-               userChoice === "✌🏻" && computerChoice === "✋🏻") {
-            app.resultElem.textContent = "Vous avez gagné !"} 
-                else {
-                    app.resultElem.textContent = "Vous avez perdu !";
-                }
+    resetGame: function() {
+        app.userScore = 0;
+        app.computerScore = 0;
+        app.player.textContent = "";
+        app.computer.textContent = "";
+        app.resultElem.textContent = "";
+        document.querySelector('.user-score').textContent = `Vous: ${app.userScore}`;
+        document.querySelector('.computer-score').textContent = `Ordinateur: ${app.computerScore}`;
     }
+    
 }
 
 document.addEventListener('DOMContentLoaded',app.init);
