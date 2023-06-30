@@ -53,7 +53,7 @@ const app = {
         parentElem.appendChild(app.resultElem);
 
         //Reset button
-        const resetButton = app.createElement('button', { className: 'reset', textContent: 'Rese' }, appDiv);
+        const resetButton = app.createElement('button', { className: 'reset', textContent: 'Reset' }, appDiv);
         resetButton.addEventListener('click', app.resetGame);
     },
 
